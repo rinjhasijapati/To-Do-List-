@@ -23,8 +23,9 @@ export default function Home() {
   const onSubmitHandler = async (e) => {
     e.preventDefault();
     try {
+      const response = await axios.post('/api', formData);
 
-      toast.success('Success')
+      toast.success(response.data.msg);
     } catch (error) {
       toast.error('Error');
     }
